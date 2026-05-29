@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>부경대 사회복지학 실무역량 짱이다</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Pretendard', sans-serif;
+    background:#151100;
+    color:#fff8d8;
+    overflow-x:hidden;
+}
+
+/* 배경 */
+
+body::before{
+    content:'';
+    position:fixed;
+    width:700px;
+    height:700px;
+    background:#ffcc00;
+    top:-300px;
+    right:-250px;
+    filter:blur(190px);
+    opacity:0.35;
+    z-index:-1;
+}
+
+body::after{
+    content:'';
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#ff9900;
+    bottom:-220px;
+    left:-200px;
+    filter:blur(160px);
+    opacity:0.25;
+    z-index:-1;
+}
+
+/* 헤더 */
+
+header{
+    width:100%;
+    padding:35px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:2rem;
+    font-weight:700;
+    letter-spacing:8px;
+    position:relative;
+    color:#ffe169;
+}
+
+.logo::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:100%;
+    height:4px;
+    background:#ffd000;
+    transform:skewX(-40deg);
+}
+
+nav{
+    display:flex;
+    gap:28px;
+}
+
+nav a{
+    color:#ffe8a3;
+    text-decoration:none;
+    transition:0.3s;
+    font-size:0.95rem;
+}
+
+nav a:hover{
+    color:white;
+}
+
+/* 메인 */
+
+.hero{
+    padding:90px 8% 40px;
+}
+
+.hero h1{
+    font-size:5rem;
+    line-height:0.95;
+    font-weight:700;
+    letter-spacing:-3px;
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:#ffd84d;
+}
+
+.hero p{
+    max-width:700px;
+    color:#ffe8a8;
+    line-height:1.8;
+    font-size:1.08rem;
+}
+
+/* 카드 */
+
+.grid{
+    width:84%;
+    margin:60px auto 100px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:28px;
+}
+
+.card{
+    background:rgba(255,220,80,0.08);
+    border:1px solid rgba(255,230,120,0.18);
+    border-radius:24px;
+    padding:30px;
+    position:relative;
+    overflow:hidden;
+    backdrop-filter:blur(12px);
+    transition:0.35s;
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-20%;
+    width:140%;
+    height:2px;
+    background:linear-gradient(to right,transparent,#ffd000,transparent);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#ffd000;
+    box-shadow:0 0 25px rgba(255,208,0,0.25);
+}
+
+.card h2{
+    margin-bottom:25px;
+    font-size:1.4rem;
+    letter-spacing:-1px;
+    color:#fff0a8;
+}
+
+/* 날씨 */
+
+.weather-temp{
+    font-size:3.2rem;
+    font-weight:700;
+    margin-bottom:12px;
+    color:#ffd84d;
+}
+
+.weather-desc{
+    color:#ffe8a8;
+}
+
+/* 뉴스 */
+
+.news-item{
+    margin-bottom:22px;
+    padding-bottom:22px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.news-item:last-child{
+    margin-bottom:0;
+    padding-bottom:0;
+    border:none;
+}
+
+.news-item a{
+    color:white;
+    text-decoration:none;
+    line-height:1.6;
+    transition:0.3s;
+}
+
+.news-item a:hover{
+    color:#ffd84d;
+}
+
+.news-source{
+    margin-top:8px;
+    color:#d7bf71;
+    font-size:0.9rem;
+}
+
+/* 통계 */
+
+.stat{
+    margin-bottom:24px;
+}
+
+.stat-title{
+    margin-bottom:10px;
+    color:#fff0b5;
+}
+
+.bar{
+    width:100%;
+    height:10px;
+    background:#3b2f00;
+    border-radius:50px;
+    overflow:hidden;
+}
+
+.fill{
+    height:100%;
+    background:linear-gradient(to right,#ffcc00,#fff2a6);
+}
+
+/* 푸터 */
+
+footer{
+    text-align:center;
+    padding:40px 20px;
+    border-top:1px solid rgba(255,255,255,0.08);
+    color:#d7bf71;
+}
+
+/* 반응형 */
+
+@media(max-width:768px){
+
+    nav{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:3rem;
+    }
+
+    .grid{
+        width:90%;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">PKNU</div>
+
+    <nav>
+        <a href="#weather">날씨</a>
+        <a href="#busan">부산 이슈</a>
+        <a href="#news">부경대 뉴스</a>
+        <a href="#welfare">사회복지 통계</a>
+    </nav>
+
+</header>
+
+<section class="hero">
+
+    <h1>
+        부경대<br>
+        <span>사회복지학</span>
+    </h1>
+
+    <p>
+        부경대 사회복지학 실무역량 짱이다.
+        부산 지역 이슈, 부경대학교 뉴스,
+        사회복지 통계와 날씨 정보를
+        미래형 대시보드 스타일로 구성한 홈페이지.
+    </p>
+
+</section>
+
+<section class="grid">
+
+    <div class="card" id="weather">
+
+        <h2>현재 날씨</h2>
+
+        <div class="weather-temp" id="temp">
+            24°C
+        </div>
+
+        <div class="weather-desc" id="weatherText">
+            부산 · 맑음
+        </div>
+
+    </div>
+
+    <div class="card" id="busan">
+
+        <h2>부산 이슈</h2>
+
+        <div class="news-item">
+            <a href="#">
+                부산 북항 재개발 사업 본격 확대
+            </a>
+
+            <div class="news-source">
+                BUSAN ISSUE
+            </div>
+        </div>
+
+        <div class="news-item">
+            <a href="#">
+                부산 관광객 증가로 지역 상권 회복세
+            </a>
+
+            <div class="news-source">
+                KOREA NEWS
+            </div>
+        </div>
+
+        <div class="news-item">
+            <a href="#">
+                청년 정착 지원 정책 확대 논의
+            </a>
+
+            <div class="news-source">
+                LOCAL REPORT
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card" id="news">
+
+        <h2>부경대학교 뉴스</h2>
+
+        <div class="news-item">
+            <a href="#">
+                부경대, AI 기반 융합 연구 강화
+            </a>
+
+            <div class="news-source">
+                PKNU NEWS
+            </div>
+        </div>
+
+        <div class="news-item">
+            <a href="#">
+                사회복지학과 지역 연계 프로그램 운영
+            </a>
+
+            <div class="news-source">
+                CAMPUS REPORT
+            </div>
+        </div>
+
+        <div class="news-item">
+            <a href="#">
+                학생 실무역량 강화 프로젝트 확대
+            </a>
+
+            <div class="news-source">
+                UNIVERSITY DAILY
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card" id="welfare">
+
+        <h2>사회복지 통계</h2>
+
+        <div class="stat">
+            <div class="stat-title">
+                노인복지 예산 증가율
+            </div>
+
+            <div class="bar">
+                <div class="fill" style="width:78%;"></div>
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-title">
+                청년복지 체감 만족도
+            </div>
+
+            <div class="bar">
+                <div class="fill" style="width:64%;"></div>
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-title">
+                지역복지 프로그램 참여율
+            </div>
+
+            <div class="bar">
+                <div class="fill" style="width:85%;"></div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 부경대 사회복지학 실무역량 짱이다
+</footer>
+
+<script>
+
+const hour = new Date().getHours();
+const weatherText = document.getElementById('weatherText');
+
+if(hour >= 6 && hour < 12){
+    weatherText.innerText = '부산 · 밝은 아침';
+}
+else if(hour >= 12 && hour < 18){
+    weatherText.innerText = '부산 · 활기찬 오후';
+}
+else{
+    weatherText.innerText = '부산 · 차분한 밤';
+}
+
+</script>
+
+</body>
+</html>
